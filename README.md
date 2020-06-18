@@ -27,7 +27,7 @@ It is a simple wrapper for JSDoc2MD, with a couple of changes
 
 ## Example
 
-### Using this input
+Using this input:
 
 ```
 /**
@@ -40,7 +40,7 @@ function protection (cloak, dagger) {}
 ```
 
 
-sss generates this MD:
+JSDoc2MD generates this MD:
 
 ```md
 ## protection(cloak, dagger) ⇒ <code>survival</code>
