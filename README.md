@@ -10,11 +10,14 @@ It is a simple wrapper for JSDoc2MD, with a couple of changes
 
 ## Usage
 
-`jsdoc2vuepres` => will use default values (`['src/index.js']` and `'DOCS.md'`)
+`jsdoc2vuepres` => will use default values (`'src/*.{js,ts}'` and `'DOCS.md'`)
 
-`jsdoc2vuepres src/*.js` => will use default output value (`'DOCS.md'`)
+`jsdoc2vuepres 'src/*.{js,ts}'` => will use default output value (`'DOCS.md'`)
+
+`jsdoc2vuepres 'src/index.{js,ts}'` => will use default output value (`'DOCS.md'`)
 
 **Note:** If you installed this as a local dependency (not globally) you'll need to provide the full "relative" path like this: `./node_modules/.bin/jsdoc2vuepress`
+
 
 ## References
 
@@ -42,7 +45,7 @@ function protection (cloak, dagger) {}
 
 JSDoc2MD generates this MD:
 
-```md
+```markdown
 ## protection(cloak, dagger) ⇒ <code>survival</code>
 A quite wonderful function.
 
@@ -56,7 +59,7 @@ A quite wonderful function.
 
 and jsdoc2vuepress generates this one
 
-```md
+```markdown
 ## protection
 _protection(cloak, dagger) ⇒ <code>survival</code>_
 A quite wonderful function.
