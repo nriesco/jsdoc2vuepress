@@ -2,9 +2,11 @@
   "name": "jsdoc2vuepress",
   "version": "1.0.2",
   "description": "Simple jsdoc2md wrapper to create ready to use markdown files for vuepress",
-  "main": "bin/cli.js",
   "bin": {
     "jsdoc2vuepress": "./bin/cli.js"
+  },
+  "engines": {
+    "node": ">=10"
   },
   "scripts": {
     "test": "DEBUG_LOCAL=true bin/cli.js files/sample.js files/sample.md",
@@ -14,12 +16,24 @@
     "type": "git",
     "url": "git+https://github.com/nriesco/jsdoc2vuepress.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "vuejs",
+    "vuepress",
+    "vuepress-plugin",
+    "flowchart",
+    "jsdocs",
+    "jsdoc2md"
+  ],
+  "author": "Nico R.",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nriesco/jsdoc2vuepress/issues"
   },
+  "files": [
+    "files/header.hbs",
+    "bin/cli.js",
+    "bin/cleanFlowChart.js"
+  ],
   "homepage": "https://github.com/nriesco/jsdoc2vuepress#readme",
   "dependencies": {
     "jsdoc-to-markdown": "^6.0.1"
