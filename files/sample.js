@@ -16,13 +16,12 @@
 @flowstart
 start=>start: START
 end=>end: END
-opValorInicial=>operation: comunaDestino = null
-comunaConExhorto=>condition: Esta comuna tiene exhorto
-opAsignarValor=>operation: comunaDestino = 'La Comuna'
-
-start->opValorInicial->comunaConExhorto
-comunaConExhorto(yes)->opAsignarValor->end
-comunaConExhorto(no)->end
+init=>operation: foo = null
+someCondition=>condition: Some question
+someOperation=>operation: foo = 'var'
+start->init->someCondition
+someCondition(yes)->someOperation->end
+someCondition(no)->end
 @flowend
   */
 const addNumbers = (firstNumber = 0, secondNumber = 0) => {
