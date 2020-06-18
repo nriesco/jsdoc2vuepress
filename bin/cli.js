@@ -3,7 +3,7 @@ const fs = require('fs');
 const jsdoc2md = require('jsdoc-to-markdown');
 
 // default values
-let files = ['src/index.js'];
+let files = ['src/*.{js,ts}'];
 let outputFile = 'DOCS.md';
 
 if (process.argv.length >= 3) files = [process.argv[2]];
