@@ -14,6 +14,7 @@ It is a simple wrapper for JSDoc2MD, with a couple of changes
 
 `jsdoc2vuepres src/*.js` => will use default output value (`'DOCS.md'`)
 
+**Note:** If you installed this as a local dependency (not globally) you'll need to provide the full "relative" path like this: `./node_modules/.bin/jsdoc2vuepress`
 
 ## References
 
