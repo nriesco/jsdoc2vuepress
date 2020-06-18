@@ -14,9 +14,6 @@ const options = {
   partial: ['files/header.hbs']
 }
 
-// const cleanFlowChart = (mdData) => {
-//   return mdData;
-// }
 const cleanFlowChart = require('./cleanFlowChart')
 
 jsdoc2md
