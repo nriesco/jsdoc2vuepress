@@ -6,8 +6,8 @@ const jsdoc2md = require('jsdoc-to-markdown');
 let files = ['src/index.js'];
 let outputFile = 'DOCS.md';
 
-if (process.argv.length >= 2) files = [process.argv[2]];
-if (process.argv.length >= 3) outputFile = process.argv[3];
+if (process.argv.length >= 3) files = [process.argv[2]];
+if (process.argv.length >= 4) outputFile = process.argv[3];
 
 const options = { 
   files,
