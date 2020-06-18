@@ -1,6 +1,6 @@
 {
   "name": "jsdoc2vuepress",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple jsdoc2md wrapper to create ready to use markdown files for vuepress",
   "main": "bin/cli.js",
   "bin": {
