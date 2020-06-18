@@ -11,7 +11,8 @@ if (process.argv.length >= 4) outputFile = process.argv[3];
 
 const options = { 
   files,
-  partial: ['files/header.hbs']
+  partial: ['node_modules/jsdoc2vuepress/files/header.hbs'] // dev environment
+  // partial: ['files/header.hbs'] // local environment
 }
 
 const cleanFlowChart = require('./cleanFlowChart')
