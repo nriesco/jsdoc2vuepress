@@ -11,8 +11,8 @@ if (process.argv.length >= 4) outputFile = process.argv[3];
 
 const options = { 
   files,
-  partial: 'files/header.hbs'
-};
+  partial: ['files/header.hbs']
+}
 
 // const cleanFlowChart = (mdData) => {
 //   return mdData;
