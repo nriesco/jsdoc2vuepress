@@ -7,7 +7,8 @@
     "jsdoc2vuepress": "./bin/cli.js"
   },
   "scripts": {
-    "test": "bin/cli.js files/sample.js files/sample.md"
+    "test": "bin/cli.js files/sample.js files/sample.md",
+    "patch": "npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
