@@ -36,7 +36,7 @@ jsdoc2md
  * read from COVERAGE_RAW.md
  * write to COVERAGE.md
  */
-let prefix = '';
+let prefix = 'dist/';
 if (process.env.DEBUG_LOCAL) prefix = 'files/'; // add prefix for testing purposes
 const coverageFile = fs.readFileSync(prefix + 'COVERAGE_RAW.md');
 const cleanCoverageFile = require('./cleanCoverageFile');
