@@ -2,9 +2,12 @@
 const fs = require('fs');
 const jsdoc2md = require('jsdoc-to-markdown');
 
+let prefix = 'dist/';
+if (process.env.DEBUG_LOCAL) prefix = 'files/'; // add prefix for testing purposes
+
 // default values
 let files = ['src/*.{js,ts}'];
-let outputFile = 'DOCS.md';
+let outputFile = prefix + 'DOCS.md';
 
 if (process.argv.length >= 3) files = [process.argv[2]];
 if (process.argv.length >= 4) outputFile = process.argv[3];
@@ -36,8 +39,6 @@ jsdoc2md
  * read from COVERAGE_RAW.md
  * write to COVERAGE.md
  */
-let prefix = 'dist/';
-if (process.env.DEBUG_LOCAL) prefix = 'files/'; // add prefix for testing purposes
 const coverageFile = fs.readFileSync(prefix + 'COVERAGE_RAW.md');
 const cleanCoverageFile = require('./cleanCoverageFile');
 const cleanData = cleanCoverageFile(coverageFile.toString()); // remember to use `.toString()`
