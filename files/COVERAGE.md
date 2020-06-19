@@ -1,18 +1,25 @@
 # Report
 
+::: tip jsdoc2vuepress@1.0.6
+
+_Generated: 2020-06-19_
+:::
+
+## Tests
 
 
-# addNumbers
+
+### addNumbers
   ✓ caso `base`
 
-# obtenerDatosJuzgadoPorNombre()
+### obtenerDatosJuzgadoPorNombre()
   - revisar si este formato esta ok o no
 
-# compareStrings(needle, haystack, partialFind)
+### compareStrings(needle, haystack, partialFind)
   - be.ok
   - be.false
 
-# validador de rut
+### validador de rut
   - ejemplo equal
   - ejemplo deepEqual
   - ejemplo containDeep
@@ -22,11 +29,12 @@
 6 pending
 
 
+## Coverage Results
+
 File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------|---------|----------|---------|---------|-------------------
 All files |      80 |        0 |      50 |      80 |                   
  index.js |      80 |        0 |      50 |      80 | 58                
-
 
 
 - Statements   : 80% ( 4/5 )

@@ -5,33 +5,54 @@
  * not to be a valid markdown
  *
  * We apply
- * - remove indentation
  * - add a space after `  #` (same with other tokens)
- * - tranform the tables (remove top and bottom rows)
+ * - remove indentation
+ * - transform the tables (remove top and bottom rows both
+ * for text and text-summary reporters' output)
  * - the last results are transformed into a list
  * - add a title `# Report`
+ *
+ * https://istanbul.js.org/docs/advanced/alternative-reporters/
  */
 const clean = (data) => {
-  data = data.replace(/\n  #([^ ]+)/g, '\n  # \$1')
-  data = data.replace(/\n  -([^ ]+)/g, '\n  - \$1'); // pending
-  data = data.replace(/\n  ✓([^ ]+)/g, '\n  ✓ \$1'); // passing
-  // data = data.replace(/\n  #/g, '\n  # ')
-  data = data.replace(/\n  /g, '\n')
-  data = data.replace(/\n------.*\nFile/g, '\n\nFile')
-  data = data.replace(/\n.*-----------\n\n/g, '\n\n\n')
-  data = data.replace(/\n=+.*=+\n/g, '\n\n')
+  // add a space if needed
+  data = data.replace(/^  #([^ ]+)(.*)$/gm, '  ### \$1$2');
+  data = data.replace(/^  -([^ ]+)(.*)$/gm, '  - \$1$2'); // pending
+  data = data.replace(/^  ✓([^ ]+)(.*)$/gm, '  ✓ \$1$2'); // passing
 
-  let keyWords = ['Statements', 'Branches', 'Functions', 'Lines']
+  // remove indentation
+  data = data.replace(/^  /gm, '');
+
+  // remove top and bottom frame for text reporter
+  data = data.replace(/^[-]+.*\nFile/gm, '\n## Coverage Results\n\nFile');
+  data = data.replace(/^.*[-]+\n\n/gm, '\n');
+  
+  // remove top and bottom frame for text-summary reporter
+  data = data.replace(/^=+.*=+$/gm, '');
+
+  // transform into list
+  let keyWords = ['Statements', 'Branches', 'Functions', 'Lines'];
   keyWords.forEach(keyWord => {
-    const replace = '\n' + keyWord;
-    const re = new RegExp(replace, 'gi');
-    data = data.replace(re, '\n- ' + keyWord)
+    const replace = '^' + keyWord;
+    const re = new RegExp(replace, 'gmi');
+    data = data.replace(re, '- ' + keyWord);
   })
 
-  // add title
-  data = '# Report\n\n' + data
+  let package = require('../package.json');
 
-  return data
+  // add title and other formatted info
+  data = `# Report
+
+::: tip ${package.name}@${package.version}
+
+_Generated: 2020-06-19_
+:::
+
+## Tests
+
+` + data;
+
+  return data;
 }
 
-module.exports = clean
+module.exports = clean;
