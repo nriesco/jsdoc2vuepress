@@ -29,3 +29,17 @@ jsdoc2md
   .catch(err => {
     console.log('>> some error', err);
   })
+
+/*
+ * modify coverage file
+ *
+ * read from COVERAGE_RAW.md
+ * write to COVERAGE.md
+ */
+let prefix = '';
+if (process.env.DEBUG_LOCAL) prefix = 'files/'; // add prefix for testing purposes
+const coverageFile = fs.readFileSync(prefix + 'COVERAGE_RAW.md');
+const cleanCoverageFile = require('./cleanCoverageFile');
+const cleanData = cleanCoverageFile(coverageFile.toString()); // remember to use `.toString()`
+// write the file
+fs.writeFileSync(prefix + 'COVERAGE.md', cleanData)
