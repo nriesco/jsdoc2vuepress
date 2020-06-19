@@ -1,6 +1,6 @@
 # Report
 
-::: tip jsdoc2vuepress@1.0.6
+::: tip jsdoc2vuepress@1.0.7
 
 _Generated: 2020-06-19_
 :::

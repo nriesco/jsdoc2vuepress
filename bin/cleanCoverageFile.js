@@ -1,4 +1,16 @@
 /**
+ * get the date in YYYY-MM-DD format
+ */
+const getFormattedDate = () => {
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  const yyyy = today.getFullYear();
+
+  return(yyyy + '-' + mm + '-' + dd);
+}
+
+/**
  * Remove stuff from the output
  *
  * The output was meant to be shown in the console
@@ -26,7 +38,7 @@ const clean = (data) => {
   // remove top and bottom frame for text reporter
   data = data.replace(/^[-]+.*\nFile/gm, '\n## Coverage Results\n\nFile');
   data = data.replace(/^.*[-]+\n\n/gm, '\n');
-  
+
   // remove top and bottom frame for text-summary reporter
   data = data.replace(/^=+.*=+$/gm, '');
 
@@ -45,7 +57,7 @@ const clean = (data) => {
 
 ::: tip ${package.name}@${package.version}
 
-_Generated: 2020-06-19_
+_Generated: ${getFormattedDate()}_
 :::
 
 ## Tests
