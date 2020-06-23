@@ -2,15 +2,19 @@
 const fs = require('fs');
 const jsdoc2md = require('jsdoc-to-markdown');
 
+
+// default value
+let files = ['src/*.{js,ts}'];
+if (process.argv.length >= 3) files = [process.argv[2]];
+
+// default value
 let prefix = 'dist/';
 if (process.env.DEBUG_LOCAL) prefix = 'files/'; // add prefix for testing purposes
 
-// default values
-let files = ['src/*.{js,ts}'];
+// default value
+if (process.argv.length >= 4) prefix = process.argv[3];
 let outputFile = prefix + 'DOCS.md';
 
-if (process.argv.length >= 3) files = [process.argv[2]];
-if (process.argv.length >= 4) outputFile = process.argv[3];
 
 let partial = ['node_modules/jsdoc2vuepress/files/header.hbs'];
 if (process.env.DEBUG_LOCAL) partial = ['files/header.hbs'];

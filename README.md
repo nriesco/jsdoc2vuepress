@@ -10,11 +10,13 @@ It is a simple wrapper for JSDoc2MD, with a couple of changes
 
 ## Usage
 
-`jsdoc2vuepres` => will use default values (`'src/*.{js,ts}'` and `'DOCS.md'`)
+`jsdoc2vuepres` => will use default values (`'src/*.{js,ts}'` and `'dist/DOCS.md'`)
 
-`jsdoc2vuepres 'src/*.{js,ts}'` => will use default output value (`'DOCS.md'`)
+`jsdoc2vuepres 'src/*.{js,ts}'` => will use default output value (`'dist/DOCS.md'`)
 
-`jsdoc2vuepres 'src/index.{js,ts}'` => will use default output value (`'DOCS.md'`)
+`jsdoc2vuepres 'src/index.{js,ts}'` => will use default output value (`'dist/DOCS.md'`)
+
+`jsdoc2vuepres 'src/index.{js,ts}' 'output'` => will use (`'out/DOCS.md'`)
 
 **Note:** If you installed this as a local dependency (not globally) you'll need to provide the full "relative" path like this: `./node_modules/.bin/jsdoc2vuepress`
 
