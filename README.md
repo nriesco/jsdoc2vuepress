@@ -1,6 +1,11 @@
 # jsdoc2vuepress
 
+## TL;DR
+
 If you use [JSDoc](https://jsdoc.app) annotations and [Vuepress](https://vuepress.vuejs.org) to generate your docs, this is for you.
+
+
+## About
 
 jsdoc2vuepress will read your library's JSDoc annotations and generate the necessary markdown data to work in vuepress. It will also make [Vuepress flowchart plugin](https://github.com/ulivz/vuepress-plugin-flowchart) annotations work and create a coverage report to easily add it to your docs.
 
