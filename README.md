@@ -1,11 +1,13 @@
 # jsdoc2vuepress
 
-Vuepress-compatible markdown generator for jsdocs comments.
+If you use [JSDoc](https://jsdoc.app) annotations and [Vuepress](https://vuepress.vuejs.org) to generate your docs, this is for you.
 
-It is a simple wrapper for JSDoc2MD, with a couple of changes
-1. Instead of using the signature as the "title" it will "demote" it to a simple paragraph (italics) and the name of the function is used as the title
-2. The resulting output is modified changing `**Flowstart**:` into a vuepress-flowchart-plugin compatible version (`@flowstart`). Same thing for `Flowend`.
-3. The defaults are compatible with lib-template project (still private, soon will be public)
+jsdoc2vuepress will read your library's JSDoc annotations and generate the necessary markdown data to work in vuepress. It will also make [Vuepress flowchart plugin](https://github.com/ulivz/vuepress-plugin-flowchart) annotations work and create a coverage report to easily add it to your docs.
+
+jsdoc2vuepress is simple wrapper for JSDoc2MD, with some changes:
+1. Instead of using the method's signature as the "title" it will "demote" it to a simple paragraph (italics) and the name of the function is used as the title. This will avoid having long titles in the table of contents / sidebar menu.
+2. The output is modified so `**Flowstart**:` is changed back into a vuepress-flowchart-plugin compatible version (`@flowstart`). Same thing for `Flowend`.
+3. The defaults are compatible with yalt4node project (still private, soon will be public)
 
 
 ## Usage
@@ -23,10 +25,10 @@ It is a simple wrapper for JSDoc2MD, with a couple of changes
 
 ## References
 
-- lib-template: https://github.com/nriesco/lib-template
 - JSDocs: https://jsdoc.app
 - Vuepress: https://vuepress.vuejs.org
 - Vuepress flowchart plugin: https://github.com/ulivz/vuepress-plugin-flowchart
+- yalt4node: https://github.com/nriesco/yalt4node
 - JSDoc2MD: https://github.com/jsdoc2md/jsdoc-to-markdown
 
 
@@ -59,7 +61,7 @@ A quite wonderful function.
 | dagger | <code>object</code> | Security     |
 ```
 
-and jsdoc2vuepress generates this one
+and jsdoc2vuepress generates this one (the signature is no longer a header)
 
 ```markdown
 ## protection
