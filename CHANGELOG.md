@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Date format: 2017-05-02
 - Options: Added / Changed / Deprecated / Removed / Fixed / Security
 
-## [1.1.1] - 2021-05-10
+## [1.1.2] - 2021-05-10
 ### Fixed
 - Upgrading packages for security purposes
 
