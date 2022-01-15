@@ -23,7 +23,7 @@ const options = {
 }
 
 // get package version
-const libraryPackage = fs.readFileSync(prefix + '../package.json').toString()
+const libraryPackage = JSON.parse(fs.readFileSync(prefix + '../package.json').toString())
 
 const title = `# Docs
 
