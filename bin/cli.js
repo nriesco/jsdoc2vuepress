@@ -22,7 +22,15 @@ const options = {
   partial
 }
 
-const title = '# Docs\n\n'
+// get package version
+const libraryPackage = fs.readFileSync(prefix + '../package.json')
+
+const title = `# Docs
+
+::: tip ${libraryPackage.name}@${libraryPackage.version}
+
+:::
+`
 
 const cleanFlowChart = require('./cleanFlowChart')
 
