@@ -27,9 +27,12 @@ const libraryPackage = JSON.parse(fs.readFileSync(prefix + '../package.json').to
 
 const title = `# Docs
 
-::: tip ${libraryPackage.name}@${libraryPackage.version}
+::: tip ${libraryPackage.name}
+
+Version: ${libraryPackage.version}
 
 :::
+
 `
 
 const cleanFlowChart = require('./cleanFlowChart')
