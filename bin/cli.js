@@ -52,8 +52,8 @@ jsdoc2md
     // now modify readme file
     // change [[CURRENT_VERSION]] with the current version
     try {
-      const data = fs.readFileSync(prefix + '../README.md')
-        .replace('# Readme', title2)
+      let data = fs.readFileSync(prefix + '../README.md')
+      data = data.replace('# Readme', title2)
       fs.writeFileSync(outputFileReadme, data)
     } catch (e) {
       console.log('>>> jsdoc2vuepress error #1', e)
