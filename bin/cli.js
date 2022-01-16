@@ -13,6 +13,7 @@ if (process.env.DEBUG_LOCAL) prefix = 'files/' // add prefix for testing purpose
 // default value
 if (process.argv.length >= 4) prefix = process.argv[3]
 const outputFile = prefix + 'DOCS.md'
+const outputFileReadme = prefix + 'README.md'
 
 let partial = ['node_modules/jsdoc2vuepress/files/header.hbs']
 if (process.env.DEBUG_LOCAL) partial = ['files/header.hbs']
@@ -27,6 +28,16 @@ const libraryPackage = JSON.parse(fs.readFileSync(prefix + '../package.json').to
 
 const title = '# Docs'
 
+const title2 = `# Readme
+
+::: tip ${libraryPackage.name}
+
+Version: ${libraryPackage.version}
+
+:::
+
+`
+
 const cleanFlowChart = require('./cleanFlowChart')
 
 jsdoc2md
@@ -39,9 +50,8 @@ jsdoc2md
     // now modify readme file
     // change [[CURRENT_VERSION]] with the current version
     try {
-      const outputFileReadme = prefix + '../README.md'
-      let data = fs.readFileSync(outputFileReadme)
-      data = data.replace('[[CURRENT_VERSION]]', libraryPackage.version)
+      const data = fs.readFileSync(prefix + '../README.md')
+        .replace('# Readme', title2)
       fs.writeFileSync(outputFileReadme, data)
     } catch (e) {
       console.log('>>> jsdoc2vuepress error #1', e)
