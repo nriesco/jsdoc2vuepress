@@ -25,15 +25,7 @@ const options = {
 // get package version
 const libraryPackage = JSON.parse(fs.readFileSync(prefix + '../package.json').toString())
 
-const title = `# Docs
-
-::: tip ${libraryPackage.name}
-
-Version: ${libraryPackage.version}
-
-:::
-
-`
+const title = '# Docs'
 
 const cleanFlowChart = require('./cleanFlowChart')
 
@@ -43,6 +35,17 @@ jsdoc2md
     output = cleanFlowChart(output)
     output = title + output
     fs.writeFileSync(outputFile, output)
+
+    // now modify readme file
+    // change [[CURRENT_VERSION]] with the current version
+    try {
+      const outputFileReadme = prefix + '../README.md'
+      let data = fs.readFileSync(outputFileReadme)
+      data = data.replace('[[CURRENT_VERSION]]', libraryPackage.version)
+      fs.writeFileSync(outputFileReadme, data)
+    } catch (e) {
+      console.log('>>> jsdoc2vuepress error #1', e)
+    }
     process.exit(0)
   })
   .catch(err => {
