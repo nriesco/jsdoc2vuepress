@@ -37,7 +37,6 @@ const title2 = `# Readme
 Version: ${libraryPackage.version}
 
 :::
-
 `
 
 const cleanFlowChart = require('./cleanFlowChart')
@@ -52,8 +51,10 @@ jsdoc2md
     // now modify readme file
     // change [[CURRENT_VERSION]] with the current version
     try {
-      let data = fs.readFileSync(prefix + '../README.md')
-      data = data.replace('# Readme', title2)
+      const data = fs
+        .readFileSync(prefix + '../README.md')
+        .toString()
+        .replace('# Readme', title2)
       fs.writeFileSync(outputFileReadme, data)
     } catch (e) {
       console.log('>>> jsdoc2vuepress error #1', e)
