@@ -26,7 +26,9 @@ const options = {
 // get package version
 const libraryPackage = JSON.parse(fs.readFileSync(prefix + '../package.json').toString())
 
-const title = '# Docs'
+const title = `# Docs
+
+`
 
 const title2 = `# Readme
 
