@@ -37,6 +37,6 @@
   ],
   "homepage": "https://github.com/nriesco/jsdoc2vuepress#readme",
   "dependencies": {
-    "jsdoc-to-markdown": "^7.0.1"
+    "jsdoc-to-markdown": "^7.1.0"
   }
 }
